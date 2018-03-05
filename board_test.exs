@@ -28,7 +28,22 @@ defmodule BoardTest do
 
   test "returns true if a cell is empty and false otherwise" do
     board = Board.empty_board() |> Board.insert_symbol(1, :player_two)
-    assert Board.empty_cell(board, 0) == true
-    assert Board.empty_cell(board, 1) == false
+    assert Board.empty_cell?(board, 0) == true
+    assert Board.empty_cell?(board, 1) == false
+  end
+
+  test "obtain all rows" do
+    board = [0,1,2,3,4,5,6,7,8]
+    assert Board.row(board) == [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+  end
+
+  test "obtain all columns" do
+    board = [0,1,2,3,4,5,6,7,8]
+    assert Board.column(board) == [[0, 3, 6], [1, 4, 7], [2, 5, 8]]
+  end
+
+  test "obtain all diagonals" do
+    board = [0,1,2,3,4,5,6,7,8]
+    assert Board.diagonal(board) == [[0, 4, 8], [2, 4, 6]]
   end
 end
