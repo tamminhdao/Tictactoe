@@ -1,3 +1,0 @@
-defmodule TictactoeElixir do
-
-end
