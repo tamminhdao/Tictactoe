@@ -8,10 +8,12 @@ defmodule HumanPlayerTest do
     end)
   end
 
-  test "cell_selection() returns the correct integer from player's input (scenario 2)" do
-    capture_io([input: "1 89%$%}"], fn ->
-      assert HumanPlayer.cell_selection(:place_holder) == 1
-    end)
+  describe "user enters some gebberish in addition to the cell input" do
+    test "cell_selection() returns the correct integer" do
+      capture_io([input: "1 8?^jk*$%}"], fn ->
+        assert HumanPlayer.cell_selection(:place_holder) == 1
+      end)
+    end
   end
 
 end

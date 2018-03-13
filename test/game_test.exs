@@ -3,9 +3,9 @@ defmodule GameTest do
 
   test "if there is a win, the game stops" do
     board = Board.empty_board
-            |> Board.insert_symbol(0, :X)
-            |> Board.insert_symbol(1, :X)
-            |> Board.insert_symbol(2, :X)
+    |> Board.insert_symbol(0, :X)
+    |> Board.insert_symbol(1, :X)
+    |> Board.insert_symbol(2, :X)
     final_board = Game.play(board, [EasyAI, EasyAI], [:X, :O])
     assert final_board == board
   end

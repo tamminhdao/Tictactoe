@@ -12,15 +12,15 @@ defmodule BoardTest do
 
   test "mark two cells with different players' symbol" do
     marked_board = Board.empty_board()
-            |> Board.insert_symbol(0, :player_one)
-            |> Board.insert_symbol(1, :player_two)
+    |> Board.insert_symbol(0, :player_one)
+    |> Board.insert_symbol(1, :player_two)
     assert marked_board == [:player_one, :player_two, :empty, :empty, :empty, :empty, :empty, :empty, :empty]
   end
 
   test "return the correct value for a particular cell" do
     marked_board = Board.empty_board()
-            |> Board.insert_symbol(0, :player_one)
-            |> Board.insert_symbol(1, :player_two)
+    |> Board.insert_symbol(0, :player_one)
+    |> Board.insert_symbol(1, :player_two)
     assert Board.cell_value(marked_board, 0) == :player_one
     assert Board.cell_value(marked_board, 1) == :player_two
     assert Board.cell_value(marked_board, 2) == :empty
@@ -39,38 +39,38 @@ defmodule BoardTest do
 
   test "is_full?() returns false if there are more than one empty cells on the board" do
     almost_full_board = Board.empty_board()
-                  |> Board.insert_symbol(0, :player_one)
-                  |> Board.insert_symbol(1, :player_two)
-                  |> Board.insert_symbol(2, :player_one)
-                  |> Board.insert_symbol(4, :player_two)
-                  |> Board.insert_symbol(3, :player_one)
+    |> Board.insert_symbol(0, :player_one)
+    |> Board.insert_symbol(1, :player_two)
+    |> Board.insert_symbol(2, :player_one)
+    |> Board.insert_symbol(4, :player_two)
+    |> Board.insert_symbol(3, :player_one)
     assert Board.is_full?(almost_full_board) == false
   end
 
   test "is_full?() returns false if there is one empty cell on the board" do
     almost_full_board = Board.empty_board()
-                  |> Board.insert_symbol(0, :player_one)
-                  |> Board.insert_symbol(1, :player_two)
-                  |> Board.insert_symbol(2, :player_one)
-                  |> Board.insert_symbol(4, :player_two)
-                  |> Board.insert_symbol(3, :player_one)
-                  |> Board.insert_symbol(5, :player_two)
-                  |> Board.insert_symbol(7, :player_one)
-                  |> Board.insert_symbol(6, :player_two)
+    |> Board.insert_symbol(0, :player_one)
+    |> Board.insert_symbol(1, :player_two)
+    |> Board.insert_symbol(2, :player_one)
+    |> Board.insert_symbol(4, :player_two)
+    |> Board.insert_symbol(3, :player_one)
+    |> Board.insert_symbol(5, :player_two)
+    |> Board.insert_symbol(7, :player_one)
+    |> Board.insert_symbol(6, :player_two)
     assert Board.is_full?(almost_full_board) == false
   end
 
   test "is_full?() returns true if there is no more empty cell" do
     full_board = Board.empty_board()
-                  |> Board.insert_symbol(0, :player_one)
-                  |> Board.insert_symbol(1, :player_two)
-                  |> Board.insert_symbol(2, :player_one)
-                  |> Board.insert_symbol(4, :player_two)
-                  |> Board.insert_symbol(3, :player_one)
-                  |> Board.insert_symbol(5, :player_two)
-                  |> Board.insert_symbol(7, :player_one)
-                  |> Board.insert_symbol(6, :player_two)
-                  |> Board.insert_symbol(8, :player_one)
+    |> Board.insert_symbol(0, :player_one)
+    |> Board.insert_symbol(1, :player_two)
+    |> Board.insert_symbol(2, :player_one)
+    |> Board.insert_symbol(4, :player_two)
+    |> Board.insert_symbol(3, :player_one)
+    |> Board.insert_symbol(5, :player_two)
+    |> Board.insert_symbol(7, :player_one)
+    |> Board.insert_symbol(6, :player_two)
+    |> Board.insert_symbol(8, :player_one)
     assert Board.is_full?(full_board) == true
   end
 

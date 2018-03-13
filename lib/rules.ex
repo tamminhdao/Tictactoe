@@ -1,6 +1,7 @@
 defmodule Rules do
   def winning_combos(board) do
-    Enum.into(Board.row(board), Board.column(board))
+    Board.row(board)
+    |> Enum.into(Board.column(board))
     |> Enum.into(Board.diagonal(board))
   end
 
@@ -26,6 +27,8 @@ defmodule Rules do
   end
 
   defp identical_player_symbol?(enumerable) do
-    Enum.uniq(enumerable) |> Kernel.length == 1 && Enum.uniq(enumerable) != [:empty]
+    Enum.uniq(enumerable) |> Kernel.length == 1
+    &&
+    Enum.uniq(enumerable) != [:empty]
   end
 end
