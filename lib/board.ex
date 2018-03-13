@@ -1,6 +1,6 @@
 defmodule Board do
-  def empty_board(dimension \\ 3) do
-    Enum.to_list 0..(dimension*dimension - 1)
+  def empty_board() do
+    Enum.to_list 0..8
     |> Enum.map(fn(_) -> :empty end)
   end
 
