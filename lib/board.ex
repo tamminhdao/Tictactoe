@@ -35,4 +35,16 @@ defmodule Board do
     [i0, _, i2, _, i4, _, i6, _, i8] = board
     [[i0, i4, i8], [i2, i4, i6]]
   end
+
+  def format_board(board) do
+    Enum.with_index(board)
+    |> Enum.map(fn(x) -> status_to_display(x) end)
+  end
+
+  defp status_to_display({status, index}) do
+    case status do
+      :empty -> " #{index} "
+      _ -> " #{status} "
+    end
+  end
 end

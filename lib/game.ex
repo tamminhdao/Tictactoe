@@ -1,7 +1,7 @@
 defmodule Game do
   def play(board, players, symbols) do
-
-    CLI.display_board(board)
+    formatted_board = Board.format_board(board)
+    CLI.display_board(formatted_board)
 
     if Rules.game_in_progress?(board) do
       current_player = Enum.at(players, 0)
