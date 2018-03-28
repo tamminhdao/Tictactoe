@@ -26,6 +26,15 @@ defmodule Rules do
     end
   end
 
+  def winner(board) do
+      if win?(board) do
+        Enum.find(winning_combos(board), fn(x) -> identical_player_symbol?(x) end)
+        |> Enum.at(0)
+      else
+        nil
+      end
+  end
+
   defp identical_player_symbol?(enumerable) do
     Enum.uniq(enumerable) |> Kernel.length == 1
     &&
